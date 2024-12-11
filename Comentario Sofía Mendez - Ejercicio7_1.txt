@@ -1,0 +1,19 @@
+Clase Ejercicio71BD (Gestor de la BBDD):
+ - La clase CrearTablas sería mejor llamarla BBDD o algo parecido para que quede claro que es el codigo para hacer cambios en la bbdd. 
+ - Recomiendo hacer la conexión de la bbdd en la clase CrearTablas (que es la bbdd) mediante un constructor y llamarla en el constructor del gestor.
+ - Implementar la interfaz AutoCloseable en las clases.
+ - El metodo cargarConfiguración estaría mejor llamarlo en el constructor de la clase poniendo ya la ruta.
+ - Los metodos crearTabla(), InsertarDatos(), modificarCampo() y mostrarDatos() creo estaría mejor si se hiceran las query en la clase de la base de datos no en el gestor. La clase del gestor Ejercicio71BD debería solo de tener codigo para llamar a los metodos de la clase bbdd.
+ - Este codigo: 'String sentenciaSQL =  new String(java.nio.file.Files.readAllBytes(java.nio.file.Paths.get(insertarDatosScript))); ' esta línea creo que sería mejor si lee los ficheros o los script con un metodo para leer las lineas usando un List<String> y cargar el contenido de los scripts con un metodo para cargar los scripts.
+
+Clase CrearTablas (BBDD):
+ - Crear un constructor con la conexión.
+ - Implementar interfaz AutoCloseable.
+ - En los metodos tendría que leer los scripts de los ficheros no insertar la sentencia a mano.
+
+
+Me resulta más facil tener solo una clase de Tests y llamar a las clases necesarias para hacer las pruebas. Y llamar al metodo close() en el test con un finally.
+
+
+En el ejercicio pedía que las sentencias SQL se escriban en un fichero y luego leer ese fichero con las sentencias y ejecutarlo en el codigo.
+En el caso de Carlos no ha hecho eso, ha puesto directamente las sentencias en el codigo (así que en este caso el ejercicio estaría mal)
