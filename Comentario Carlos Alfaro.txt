@@ -1,1 +1,0 @@
-La única cosa que cambiaria sería en lugar de poner que OID buscar por el método "buscarDatoID" se lo pasaría a través de el método Test suyo. Por el resto nada que añadir está perfecto.
